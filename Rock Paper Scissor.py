@@ -63,17 +63,17 @@ while (points>-3 and points<3):
 #points ++
 
     if (choice == "rock" and system_choice == scissor):
-        print("You have lost")
+        print("You have won this round")
         points = points + 1
         print(f"you are having {points} points")
 
     elif (choice == "paper" and system_choice == rock):
-        print("You have lost in this round")
+        print("You have won in this round")
         points = points + 1
         print(f"you are having {points} points")
 
     elif (choice == "scissor" and system_choice == paper ):
-        print("You have lost in this round")
+        print("You have won in this round")
         points = points + 1 
         print(f"you are having {points} points")
 
