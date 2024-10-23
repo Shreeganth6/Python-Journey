@@ -39,6 +39,10 @@ while (points>-3 and points<3):
     elif choice == "scissor":
         print("\n"+scissor)
 
+    else:
+        print("Enter a valid option!")
+        continue
+
     print("The computer choice is : ")
     game = [rock, paper, scissor]
     random_num = random.randint(0,2)
@@ -81,15 +85,15 @@ while (points>-3 and points<3):
 
     if (choice == "rock" and system_choice == rock):
         print("Ended up in draw for this round")
-        print(f"you are having {points} points")
+        print(f"+ {points} points")
 
     elif (choice == "paper" and system_choice == paper):
         print("Ended up in draw for this round")
-        print(f"you are having {points} points")
+        print(f"+ {points} points")
 
     elif (choice == "scissor" and system_choice == scissor):
         print("Ended up in draw for this round")
-        print(f"you are having {points} points")
+        print(f"+ {points} points")
 
 #game results
     
