@@ -1,6 +1,12 @@
 import random
+import time
 
-points = 0
+start_time = time.time()
+end_time = start_time + 180
+
+system_point = 0
+player_point = 0
+
 print("Welcome to Rock Paper Scissor game ")
 rock = """
     _______
@@ -28,8 +34,21 @@ scissor = """
       (____)
 ---.__(___)
 """
-while (points > -3 and points < 3):
-    choice = input("\nRock , Paper or Scissor? ")
+loop_condition = True
+
+while loop_condition:
+
+    current_time = time.time()
+
+    if current_time >= end_time:
+        if system_point > player_point:
+            print("time is over \n You have Lost")
+            break
+        if system_point < player_point:
+            print("Time is over \n You have Won")
+            break
+
+    choice = input("\nRock , Paper or Scissor? \n ")
     choice = choice.lower()
     if choice == "rock":
         print("\n" + rock)
@@ -50,58 +69,66 @@ while (points > -3 and points < 3):
     system_choice = game[random_num]
     print(system_choice)
 
+    #points --
+
     if (choice == "rock" and system_choice == paper):
         print("You have lost")
-        points = points - 1
-        print(f"you are having {points} points")
+        player_point = player_point - 1
+        system_point = system_point + 1
+        print(f"you are having {player_point} points")
 
     elif (choice == "paper" and system_choice == scissor):
         print("You have lost")
-        points = points - 1
-        print(f"you are having {points} points")
+        player_point = player_point - 1
+        system_point = system_point + 1
+        print(f"you are having {player_point} points")
 
     elif (choice == "scissor" and system_choice == rock):
         print("You have lost")
-        points = points - 1
-        print(f"you are having {points} points")
+        player_point = player_point - 1
+        system_point = system_point + 1
+        print(f"you are having {player_point} points")
 
     # points ++
 
     if (choice == "rock" and system_choice == scissor):
         print("You have won this round")
-        points = points + 1
-        print(f"you are having {points} points")
+        player_point = player_point + 1
+        system_point = system_point - 1
+        print(f"you are having {player_point} points")
 
     elif (choice == "paper" and system_choice == rock):
         print("You have won this round")
-        points = points + 1
-        print(f"you are having {points} points")
+        player_point = player_point + 1
+        system_point = system_point - 1
+        print(f"you are having {player_point} points")
 
     elif (choice == "scissor" and system_choice == paper):
         print("You have won this round")
-        points = points + 1
-        print(f"you are having {points} points")
+        player_point = player_point + 1
+        system_point = system_point - 1
+        print(f"you are having {player_point} points")
 
     # points draw
 
     if (choice == "rock" and system_choice == rock):
         print("Ended up in draw for this round")
-        print(f"+ {points} points")
+        print(f" {player_point} points")
 
     elif (choice == "paper" and system_choice == paper):
         print("Ended up in draw for this round")
-        print(f"+ {points} points")
+        print(f" {player_point} points")
 
     elif (choice == "scissor" and system_choice == scissor):
         print("Ended up in draw for this round")
-        print(f"+ {points} points")
+        print(f" {player_point} points")
 
     # game results
 
-    if points == 3:
+    if player_point == 5:
         print("the player has won the match ")
         break
 
-    if points == -3:
+    if player_point == -5:
         print("The computer has won the match")
         break
